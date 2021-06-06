@@ -1,4 +1,4 @@
-First 20 passes: bubbleSort  random10000.txt
+First 20 passes: bubbleSort  test/random10000.txt
          pass        cmp         exch
 ---------------------------------------
           1         9999           9988           
@@ -34,7 +34,7 @@ Total:     pass        cmp         exch
 
 
 
-First 20 passes: shellsort  random10000.txt
+First 20 passes: shellsort  test/random10000.txt
 gap       pass      cmp            exch
 --------------------------------------
 9841      1         316            81             
