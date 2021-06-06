@@ -18,13 +18,13 @@ public class Main {
     public static void main(String[] args) {
 
         //Directions: Rename the below file name to sort elements in that txt file.
-        String fileName = "random10000.txt";
+        String fileName = "test/random10000.txt";
 
 
 
         PrintStream output = null;
         try {
-            output = new PrintStream(new File("Output.txt"));
+            output = new PrintStream(new File("test/Output.txt"));
         } catch (FileNotFoundException e) {
             System.out.println("ERROR " + e);
             System.exit(1);
