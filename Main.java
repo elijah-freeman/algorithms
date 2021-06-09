@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
+import java.util.*;
 
 /**
  * Main class that is used for execution of sorting algorithms.
@@ -26,18 +27,25 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		//Directions: Rename the below file name to sort elements in that txt file.
-		String fileName = "test/random10000.txt";
-		PrintStream output = null;
-		try {
-			output = new PrintStream(new File("test/Output.txt"));
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR " + e);
-			System.exit(1);
-		}
-		//displays the sorted list to the console.
-		//writes appropriate data to text file.
-		resultBubbleSort(fileName, output);
-		resultShellSort(fileName, output);
+	//	String fileName = "test/random10000.txt";
+	//	PrintStream output = null;
+	//	try {
+	//		output = new PrintStream(new File("test/Output.txt"));
+	//	} catch (FileNotFoundException e) {
+	//		System.out.println("ERROR " + e);
+	//		System.exit(1);
+	//	}
+	//	//displays the sorted list to the console.
+	//	//writes appropriate data to text file.
+	//	resultBubbleSort(fileName, output);
+	//	resultShellSort(fileName, output);
+	//	
+	
+		int[] array = {3, 2, 7, 1, 9, 5, 8, 4};
+		System.out.printf("Input Array: %s\n", Arrays.toString(array));
+		Sort sort = new Sort();
+		sort.bubbleSort(array);
+		System.out.printf("Output Array: %s\n", Arrays.toString(array));
 	}
 
 	/**
