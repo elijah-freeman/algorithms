@@ -1,5 +1,5 @@
 /*H*****************************************************************************
- * Filename: Sorting.java
+ * Filename: Sort.java
  * Description: LinkedNode object.
  * Comment:
  * Modified: 2021-06-05	Major revision

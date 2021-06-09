@@ -89,7 +89,7 @@ public class Main {
 		output.println("First 20 passes: shellsort  " + fileName);
 		output.println("gap       pass      cmp            exch");
 		output.println("--------------------------------------");
-		Sorting sorting = new Sorting(output);
+		Sort sorting = new Sort(output);
 		head = sorting.shellSort(head);
 		System.out.println();
 		System.out.println();
@@ -110,7 +110,7 @@ public class Main {
 		output.println("First 20 passes: bubbleSort  " + fileName);
 		output.println("         pass        cmp         exch");
 		output.println("---------------------------------------");
-		Sorting sorting = new Sorting(output);
+		Sort sorting = new Sort(output);
 		head = sorting.bubbleSort(head);
 		System.out.println();
 		System.out.println();

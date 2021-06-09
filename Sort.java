@@ -1,5 +1,5 @@
 /*H*****************************************************************************
- * Filename: Sorting.java
+ * Filename: Sort.java
  * Description: 
  * Comment:
  * Modified: 2021-06-05	File review and refactor.
@@ -14,14 +14,14 @@ import java.io.*;
  * @author Elijah Freeman (elijahff@uw.edu)
  * @version 1.0 (3 February 2020)
  */
-public class Sorting {
+public class Sort {
 
 	private static boolean bubbleFlag;
 	private boolean sortType;
 	private boolean callFromShell;
 	private static PrintStream output;
 
-	public Sorting(PrintStream output) {
+	public Sort(PrintStream output) {
 		this.output = output;
 		bubbleFlag = true;
 	}
