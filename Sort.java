@@ -52,7 +52,7 @@ public class Sort {
 	 */
 	public void bubbleSort(LinkedNode<Integer> head) {
 		LinkedNode<Integer> temp = head;
-		while (temp.getNext() != null) {
+		while (temp.getNext().getNext() != null) {
 			LinkedNode<Integer> previous = temp;
 			LinkedNode<Integer> current = temp.getNext();
 			LinkedNode<Integer> next = temp.getNext().getNext();
