@@ -50,49 +50,53 @@ public class Sort {
 	 *
 	 * @param  head  the pointer the the first element of a linked list.
 	 */
-	public void bubbleSort(LinkedNode<Integer> head) {
-		LinkedNode<Integer> temp = head;
-		while (temp.getNext().getNext() != null) {
-			LinkedNode<Integer> previous = temp;
-			LinkedNode<Integer> current = temp.getNext();
-			LinkedNode<Integer> next = temp.getNext().getNext();
-			while (current.getNext() != null) {
-				if (current.getElement() > next.getElement()) {
-					previous.setNext(next); 
-					current.setNext(next.getNext());
-					next = current.getNext();
-				} else {
-					previous = current;
-					current = next;
-					next = next.getNext();
+	public LinkedNode<Integer> bubbleSort(int listSize, LinkedNode<Integer> head) {
+		for (int i = 0; i < listSize; i++) {
+			LinkedNode<Integer> elementOne = head;
+			LinkedNode<Integer> elementTwo = head.getNext();
+			LinkedNode<Integer> elementThree = head.getNext().getNext();
+			while (elementThree.getNext() != null) {
+				if (elementThree.getNext() != null) {	
+					if (elementTwo.getElement() > elementThree.getElement()) {
+						elementOne.setNext(elementThree);
+						elementTwo.setNext(elementThree.getNext());
+						elementThree.setNext(elementTwo);
+						elementOne = elementThree;
+						elementThree = elementTwo.getNext();
+					} else {
+						elementOne = elementTwo;
+						elementTwo = elementThree;
+						elementThree = elementThree.getNext();
+						}
+					}
+
 				}
 			}
-			temp = temp.getNext();
+
+			return head;
 		}
-	}
 
 
+		
+		///public LinkedNode<Integer> bubbleSort(LinkedNode<Integer> first) {
+		///	LinkedNode<Integer> currentOuter = first;
+		///	LinkedNode<Integer> currentInner = first;
+		///	LinkedNode<Integer> previous = null;
+		///	LinkedNode<Integer> next = currentInner.getNext();
+		///	LinkedNode<Integer> temp;
+		///	int comparison;
+		///	int exchange;
+		///	int numPass = 0;
+		///	int totalPasses = 0;
+		///	int totalComparisons = 0;
+		///	int totalExchanges = 0;
+		///	int numberPrints = 0;
+		///	sortType = true;
+		///	boolean swapCheck = true;
 
-	
-	///public LinkedNode<Integer> bubbleSort(LinkedNode<Integer> first) {
-	///	LinkedNode<Integer> currentOuter = first;
-	///	LinkedNode<Integer> currentInner = first;
-	///	LinkedNode<Integer> previous = null;
-	///	LinkedNode<Integer> next = currentInner.getNext();
-	///	LinkedNode<Integer> temp;
-	///	int comparison;
-	///	int exchange;
-	///	int numPass = 0;
-	///	int totalPasses = 0;
-	///	int totalComparisons = 0;
-	///	int totalExchanges = 0;
-	///	int numberPrints = 0;
-	///	sortType = true;
-	///	boolean swapCheck = true;
 
-
-	///	while(swapCheck) {
-	///		exchange = 0;
+		///	while(swapCheck) {
+		///		exchange = 0;
 	///		comparison = 0;
 	///		swapCheck = false;
 

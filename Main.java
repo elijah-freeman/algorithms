@@ -20,6 +20,7 @@ import java.util.*;
  */
 public class Main {
 
+	private static int LIST_SIZE = 0;
 	/**
 	 * Driver for program that sorts Linked Lists using a BubbleSort and a ShellSort.
 	 *
@@ -50,7 +51,7 @@ public class Main {
 		Sort sort = new Sort();
 		LinkedNode<Integer> head = readValues(fileName);
 		//TODO fix bubble sort for linked list. Losing most of the values somewhere.
-		sort.bubbleSort(head);
+		head = sort.bubbleSort(LIST_SIZE, head);
 		displayList(head);
 
 	}
@@ -76,6 +77,7 @@ public class Main {
 			LinkedNode<Integer> node = new LinkedNode<>(Integer.parseInt(input.next()));
 			temp.setNext(node);
 			temp = node;
+			LIST_SIZE++;
 		}
 		temp.setNext(null);
 		return head;
