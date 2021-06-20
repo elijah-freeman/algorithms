@@ -52,6 +52,8 @@ public class Main {
 		LinkedNode<Integer> head = readValues(fileName);
 		//TODO fix bubble sort for linked list. Losing most of the values somewhere.
 		head = sort.bubbleSort(LIST_SIZE, head);
+		System.out.printf("head=%d\n\n\n", head.getElement());
+		//System.out.print(head.getElement());
 		displayList(head);
 
 	}

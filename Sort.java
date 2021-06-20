@@ -51,30 +51,43 @@ public class Sort {
 	 * @param  head  the pointer the the first element of a linked list.
 	 */
 	public LinkedNode<Integer> bubbleSort(int listSize, LinkedNode<Integer> head) {
+		LinkedNode<Integer> temp = head;
 		for (int i = 0; i < listSize; i++) {
-			LinkedNode<Integer> elementOne = head;
-			LinkedNode<Integer> elementTwo = head.getNext();
-			LinkedNode<Integer> elementThree = head.getNext().getNext();
-			while (elementThree.getNext() != null) {
-				if (elementThree.getNext() != null) {	
+			LinkedNode<Integer> elementOne = temp;
+			LinkedNode<Integer> elementTwo = temp;
+			LinkedNode<Integer> elementThree = temp.getNext();
+
+			//LinkedNode<Integer> elementOne = temp;
+			//LinkedNode<Integer> elementTwo = temp.getNext();
+			//LinkedNode<Integer> elementThree = temp.getNext().getNext();
+			//while (elementThree.getNext() != null) {
+			while (elementThree != null) {
+				if (elementTwo.getNext() != null) {	
 					if (elementTwo.getElement() > elementThree.getElement()) {
 						elementOne.setNext(elementThree);
 						elementTwo.setNext(elementThree.getNext());
 						elementThree.setNext(elementTwo);
+						if (temp == elementTwo) {
+							System.out.println(temp.getElement());
+							System.out.println(elementOne.getElement());
+							System.out.println(elementTwo.getElement());
+							System.out.println(elementThree.getElement());
+							temp = elementThree;
+						}
 						elementOne = elementThree;
 						elementThree = elementTwo.getNext();
 					} else {
 						elementOne = elementTwo;
 						elementTwo = elementThree;
 						elementThree = elementThree.getNext();
-						}
 					}
-
 				}
 			}
-
-			return head;
 		}
+		System.out.printf("Head from bubbleSort=%d\n\n", temp.getElement());
+
+		return temp;
+	}
 
 
 		
