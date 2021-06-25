@@ -51,30 +51,29 @@ public class Sort {
 	 * @param  head  the pointer the the first element of a linked list.
 	 */
 	public LinkedNode<Integer> bubbleSort(int listSize, LinkedNode<Integer> head) {
-		LinkedNode<Integer> temp = head;
+		LinkedNode<Integer> result = head;
 		for (int i = 0; i < listSize; i++) {
-			LinkedNode<Integer> current = temp;
-			LinkedNode<Integer> next = temp;
+			LinkedNode<Integer> current = result;
+			LinkedNode<Integer> next = result;
 			while (next.getNext() != null) {
 				if (next.getNext() != null) {	
 					if (next.getElement() > next.getNext().getElement()) {
-						LinkedNode<Integer> temporary = next.getNext();
+						LinkedNode<Integer> temp = next.getNext();
 						current.setNext(next.getNext());
 						next.setNext(next.getNext().getNext());
-						temporary.setNext(next);
-						if (temp == next) {
-							temp = temporary;
+						temp.setNext(next);
+						if (result == next) {
+							result = temp;
 						}
-						current = temporary;
+						current = temp;
 					} else {
-						LinkedNode<Integer> temporary = next.getNext();
 						current = next;
 						next = next.getNext();
 					}
 				}
 			}
 		}
-		return temp;
+		return result;
 	}
 
 
