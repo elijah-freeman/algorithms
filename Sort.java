@@ -56,23 +56,17 @@ public class Sort {
 			LinkedNode<Integer> current = result;
 			LinkedNode<Integer> next = result;
 			while (next.getNext() != null) {
-					if (next.getElement() > next.getNext().getElement()) { // Swap
-
-
-
+					if (next.getElement() > next.getNext().getElement()) {
 						LinkedNode<Integer> temp = next.getNext();
 						current.setNext(next.getNext());
 						next.setNext(next.getNext().getNext());
+						current = current.getNext();
 						temp.setNext(next);
 						if (result == next) {
 							result = temp;
 							current = temp;
-						} else {
-							current = current.getNext();
-						}
-
-
-					} else { // No swap just advance.
+						} 
+					} else { 
 						current = next;
 						next = next.getNext();
 					}
