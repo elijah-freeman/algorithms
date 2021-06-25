@@ -56,20 +56,20 @@ public class Sort {
 			LinkedNode<Integer> current = result;
 			LinkedNode<Integer> next = result;
 			while (next.getNext() != null) {
-					if (next.getElement() > next.getNext().getElement()) {
-						LinkedNode<Integer> temp = next.getNext();
-						current.setNext(next.getNext());
-						next.setNext(next.getNext().getNext());
-						current = current.getNext();
-						temp.setNext(next);
-						if (result == next) {
-							result = temp;
-							current = temp;
-						} 
-					} else { 
-						current = next;
-						next = next.getNext();
-					}
+				if (next.getElement() > next.getNext().getElement()) {
+					LinkedNode<Integer> temp = next.getNext();
+					current.setNext(next.getNext());
+					next.setNext(next.getNext().getNext());
+					temp.setNext(next);
+					if (result == next) {
+						result = temp;
+						current = temp;
+					} 
+					current = current.getNext();
+				} else { 
+					current = next;
+					next = next.getNext();
+				}
 			}
 		}
 		return result;
