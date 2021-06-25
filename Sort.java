@@ -53,24 +53,23 @@ public class Sort {
 	public LinkedNode<Integer> bubbleSort(int listSize, LinkedNode<Integer> head) {
 		LinkedNode<Integer> temp = head;
 		for (int i = 0; i < listSize; i++) {
-			LinkedNode<Integer> elementOne = temp;
-			LinkedNode<Integer> elementTwo = temp;
-			LinkedNode<Integer> elementThree = temp.getNext();
-			while (elementThree != null) {
-				if (elementTwo.getNext() != null) {	
-					if (elementTwo.getElement() > elementThree.getElement()) {
-						elementOne.setNext(elementThree);
-						elementTwo.setNext(elementThree.getNext());
-						elementThree.setNext(elementTwo);
-						if (temp == elementTwo) {
-							temp = elementThree;
+			LinkedNode<Integer> current = temp;
+			LinkedNode<Integer> next = temp;
+			while (next.getNext() != null) {
+				if (next.getNext() != null) {	
+					if (next.getElement() > next.getNext().getElement()) {
+						LinkedNode<Integer> temporary = next.getNext();
+						current.setNext(next.getNext());
+						next.setNext(next.getNext().getNext());
+						temporary.setNext(next);
+						if (temp == next) {
+							temp = temporary;
 						}
-						elementOne = elementThree;
-						elementThree = elementTwo.getNext();
+						current = temporary;
 					} else {
-						elementOne = elementTwo;
-						elementTwo = elementThree;
-						elementThree = elementThree.getNext();
+						LinkedNode<Integer> temporary = next.getNext();
+						current = next;
+						next = next.getNext();
 					}
 				}
 			}
