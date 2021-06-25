@@ -51,7 +51,6 @@ public class Sort {
 	 * @param  head  the pointer the the first element of a linked list.
 	 */
 	public LinkedNode<Integer> bubbleSort(int listSize, LinkedNode<Integer> head) {
-		
 		LinkedNode<Integer> temp = head;
 		for (int i = 0; i < listSize; i++) {
 			LinkedNode<Integer> elementOne = temp;
