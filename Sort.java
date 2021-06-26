@@ -53,40 +53,27 @@ public class Sort {
 	public LinkedNode<Integer> bubbleSort(int listSize, LinkedNode<Integer> head) {
 		LinkedNode<Integer> result = head;
 		for (int i = 0; i < listSize; i++) {
+			LinkedNode<Integer> previous = result;
 			LinkedNode<Integer> current = result;
-			LinkedNode<Integer> next = result;
-			while (next.getNext() != null) {
-				if (next.getElement() > next.getNext().getElement()) {
-					if (next == result) {
-						LinkedNode<Integer> temp = next.getNext();
-						next.setNext(next.getNext().getNext());
-						temp.setNext(current);
-						result = temp;
-						current = temp;
-						next = current.getNext();
-					} else {
+			while (current.getNext() != null) {
+				if (current.getElement() > current.getNext().getElement()) {
+					if (current == result) {
+						LinkedNode<Integer> next = current.getNext();
 						current.setNext(next.getNext());
-						next.setNext(next.getNext().getNext());
-						current.getNext().setNext(next);
-						current = current.getNext();
+						next.setNext(previous);
+						previous = next;
+						current = previous.getNext();
+						result = next;
+					} else {
+						previous.setNext(current.getNext());
+						current.setNext(current.getNext().getNext());
+						previous.getNext().setNext(current);
+						previous = previous.getNext();
 					}
 				} else {
-					current = next;
-					next = next.getNext();
+					previous = current;
+					current = current.getNext();
 				}
-					//LinkedNode<Integer> temp = next.getNext();
-					//current.setNext(next.getNext());
-					//next.setNext(next.getNext().getNext());
-					//temp.setNext(next);
-					//if (result == next) {
-					//	result = temp;
-					//	current = temp;
-					//} 
-					//current = current.getNext();
-				//} else { 
-				//	current = next;
-				//	next = next.getNext();
-				//}
 			}
 		}
 		return result;
