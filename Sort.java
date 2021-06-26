@@ -75,7 +75,6 @@ public class Sort {
 		return result;
 	}
 
-
 		
 		///public LinkedNode<Integer> bubbleSort(LinkedNode<Integer> first) {
 		///	LinkedNode<Integer> currentOuter = first;
