@@ -9,10 +9,10 @@
 import java.io.*;
 
 /**
- * Contains two different sorting algorithms for sorting a linked list.
+ * Contains sorting algorithms.
  *
- * @author Elijah Freeman (elijahff@uw.edu)
- * @version 1.0 (3 February 2020)
+ * @author Elijah Freeman 
+ * @version 2.0 (June 26, 2021)
  */
 public class Sort {
 
