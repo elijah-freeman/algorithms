@@ -57,19 +57,36 @@ public class Sort {
 			LinkedNode<Integer> next = result;
 			while (next.getNext() != null) {
 				if (next.getElement() > next.getNext().getElement()) {
-					LinkedNode<Integer> temp = next.getNext();
-					current.setNext(next.getNext());
-					next.setNext(next.getNext().getNext());
-					temp.setNext(next);
-					if (result == next) {
+					if (next == result) {
+						LinkedNode<Integer> temp = next.getNext();
+						next.setNext(next.getNext().getNext());
+						temp.setNext(current);
 						result = temp;
 						current = temp;
-					} 
-					current = current.getNext();
-				} else { 
+						next = current.getNext();
+					} else {
+						current.setNext(next.getNext());
+						next.setNext(next.getNext().getNext());
+						current.getNext().setNext(next);
+						current = current.getNext();
+					}
+				} else {
 					current = next;
 					next = next.getNext();
 				}
+					//LinkedNode<Integer> temp = next.getNext();
+					//current.setNext(next.getNext());
+					//next.setNext(next.getNext().getNext());
+					//temp.setNext(next);
+					//if (result == next) {
+					//	result = temp;
+					//	current = temp;
+					//} 
+					//current = current.getNext();
+				//} else { 
+				//	current = next;
+				//	next = next.getNext();
+				//}
 			}
 		}
 		return result;
