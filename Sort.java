@@ -50,9 +50,10 @@ public class Sort {
 	 *
 	 * @param  head  the pointer the the first element of a linked list.
 	 */
-	public LinkedNode<Integer> bubbleSort(int listSize, LinkedNode<Integer> head) {
+	public LinkedNode<Integer> bubbleSort(LinkedNode<Integer> head) {
+		LinkedNode<Integer> pointer = head;
 		LinkedNode<Integer> result = head;
-		for (int i = 0; i < listSize; i++) {
+		while (pointer != null) {
 			LinkedNode<Integer> previous = result;
 			LinkedNode<Integer> current = result;
 			while (current.getNext() != null) {
@@ -70,11 +71,13 @@ public class Sort {
 						previous.getNext().setNext(current);
 						previous = previous.getNext();
 					}
+					pointer = pointer == current ? previous : pointer;
 				} else {
 					previous = current;
 					current = current.getNext();
 				}
 			}
+			pointer = pointer.getNext();
 		}
 		return result;
 	}
